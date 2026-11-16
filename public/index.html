@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141210">
+  <title>Dungeon Forge · Mesa do mestre</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <svg class="svg-library" aria-hidden="true"><symbol id="i-scroll-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+<symbol id="i-swords" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></symbol>
+<symbol id="i-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+<symbol id="i-maximize" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-triangle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></symbol>
+<symbol id="i-door-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-droplets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></symbol>
+<symbol id="i-lock-keyhole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol></svg>
+  <a class="skip" href="#principal">Ir para o conteúdo</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="#criar" aria-label="Dungeon Forge · Criar dungeon"><img src="./assets/logo.webp" alt="Dungeon Forge" width="193" height="64"></a>
+      <nav aria-label="Áreas do Dungeon Forge">
+        <a href="#criar" data-view="criar" aria-current="page"><svg aria-hidden="true"><use href="#i-scroll-text"></use></svg>Criar dungeon</a>
+        <a href="#mesa" data-view="mesa"><svg aria-hidden="true"><use href="#i-map"></use></svg>Mesa do mestre</a>
+      </nav>
+      <button type="button" class="button bar-preview" data-preview><svg aria-hidden="true"><use href="#i-monitor"></use></svg><span>Abrir tela dos jogadores</span></button>
+    </div>
+  </header>
+
+  <main id="principal" tabindex="-1">
+    <section id="criar" aria-labelledby="create-title">
+      <div class="chapter">
+        <div class="page">
+          <p class="overline">D&amp;D 2024 <span aria-hidden="true">/</span> PREPARAÇÃO</p>
+          <h1 id="create-title" tabindex="-1">Criar uma dungeon</h1>
+          <p>Defina o grupo e o desafio. Depois, revise cada sala na mesa do mestre.</p>
+        </div>
+      </div>
+      <form id="create-form" class="creation page">
+        <div class="settings">
+          <fieldset class="cluster">
+            <legend>Seu grupo</legend>
+            <div class="fields pair">
+              <label>Personagens <select id="party-count" name="party-count" required></select></label>
+              <label id="shared-label">Nível do grupo <select id="party-level" name="party-level" required></select></label>
+            </div>
+            <label class="check"><input id="mixed" type="checkbox"> Definir o nível de cada personagem</label>
+            <div id="individual" class="fields levels" hidden></div>
+          </fieldset>
+          <fieldset class="cluster">
+            <legend>Dificuldade</legend>
+            <div class="difficulty">
+              <label><input type="radio" name="difficulty" value="low"><span><svg aria-hidden="true"><use href="#i-shield"></use></svg><strong>Baixa</strong><small>Risco reduzido</small></span></label>
+              <label><input type="radio" name="difficulty" value="medium" checked><span><svg aria-hidden="true"><use href="#i-swords"></use></svg><strong>Moderada</strong><small>Exige recursos</small></span></label>
+              <label><input type="radio" name="difficulty" value="high"><span><svg aria-hidden="true"><use href="#i-flame"></use></svg><strong>Alta</strong><small>Combate perigoso</small></span></label>
+            </div>
+          </fieldset>
+          <details class="advanced">
+            <summary><svg aria-hidden="true"><use href="#i-sliders-horizontal"></use></svg>Opções avançadas<svg class="chevron" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary>
+            <div class="fields pair">
+              <label>Tamanho <select id="size" name="size"><option value="auto">Sugerido pela dificuldade</option><option value="low">Compacta</option><option value="medium">Padrão</option><option value="high">Grande</option></select></label>
+              <label>Chefão <select id="boss" name="boss"><option value="auto">Automático</option><option value="try">Sempre tentar</option><option value="off">Sem chefão</option></select></label>
+              <label>Semente do mapa <input id="seed" name="seed" maxlength="60" placeholder="Gerada automaticamente"></label>
+            </div>
+          </details>
+        </div>
+        <aside class="estimate" aria-labelledby="estimate-title">
+          <p class="overline"><svg aria-hidden="true"><use href="#i-hammer"></use></svg> TEMA · FORJA</p>
+          <h2 id="estimate-title">Sua expedição</h2>
+          <dl id="estimate" aria-live="polite"></dl>
+          <button type="submit" class="button primary"><svg aria-hidden="true"><use href="#i-hammer"></use></svg>Gerar dungeon<svg class="tail" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+          <p id="generation-error" class="warning" role="alert" hidden></p>
+        </aside>
+      </form>
+    </section>
+
+    <section id="mesa" class="workbench page" aria-labelledby="desk-title" hidden>
+      <header class="desk-heading">
+        <div>
+          <p class="overline">MESA DO MESTRE <span aria-hidden="true">/</span> ANDAR 1</p>
+          <h1 id="desk-title" tabindex="-1">A Forja Submersa</h1>
+          <p id="party-line"></p>
+        </div>
+        <div class="desk-status"><p id="saved" aria-live="polite"></p><p id="broadcast" class="broadcast" aria-live="polite"></p></div>
+      </header>
+      <p id="generation-notice" class="warning" hidden></p>
+      <div class="workspace">
+        <section class="room-list" aria-labelledby="room-list-heading">
+          <h2 id="room-list-heading">Salas <span id="room-count"></span></h2>
+          <ol id="rooms"></ol>
+        </section>
+        <section class="map-panel" aria-labelledby="map-heading">
+          <header class="panel-head">
+            <h2 id="map-heading"><svg aria-hidden="true"><use href="#i-map"></use></svg>Mapa</h2>
+            <div class="tool-group" aria-label="Zoom do mapa">
+              <button type="button" class="icon-button" data-zoom="out" aria-label="Afastar mapa"><svg aria-hidden="true"><use href="#i-minus"></use></svg></button>
+              <button type="button" class="icon-button" data-zoom="reset" aria-label="Restaurar zoom"><svg aria-hidden="true"><use href="#i-maximize"></use></svg></button>
+              <button type="button" class="icon-button" data-zoom="in" aria-label="Aproximar mapa"><svg aria-hidden="true"><use href="#i-plus"></use></svg></button>
+            </div>
+          </header>
+          <div class="map-paper"><svg id="map" role="group" aria-label="Planta da Forja Submersa"></svg></div>
+          <div class="map-caption"><span><i></i>Sala selecionada</span><span><i class="open"></i>Revelada</span></div>
+        </section>
+        <section class="room-panel" aria-labelledby="room-title">
+          <header class="room-head">
+            <p class="overline" id="room-label"></p>
+            <h2 id="room-title"></h2>
+            <p id="room-text"></p>
+            <button class="button" id="edit-room-text" type="button">Editar descrição</button>
+          </header>
+          <div class="tabs" role="tablist" aria-label="Conteúdo da sala">
+            <button type="button" role="tab" id="tab-mobs" aria-controls="room-content" aria-selected="true" data-tab="mobs">Encontro</button>
+            <button type="button" role="tab" id="tab-loot" aria-controls="room-content" aria-selected="false" tabindex="-1" data-tab="loot">Tesouros</button>
+            <button type="button" role="tab" id="tab-traps" aria-controls="room-content" aria-selected="false" tabindex="-1" data-tab="traps">Armadilhas</button>
+          </div>
+          <div class="room-content" id="room-content" role="tabpanel" aria-labelledby="tab-mobs" tabindex="0"></div>
+          <footer class="reveal">
+            <button type="button" class="button primary" id="reveal-room"><svg aria-hidden="true"><use href="#i-eye"></use></svg>Revelar sala</button>
+            <button type="button" class="button" id="hide-player"><svg aria-hidden="true"><use href="#i-eye-off"></use></svg>Ocultar projeção</button>
+          </footer>
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog id="editor" aria-labelledby="dialog-title">
+    <form id="edit-form">
+      <header class="dialog-head">
+        <div><p class="overline" id="dialog-context"></p><h2 id="dialog-title"></h2></div>
+        <button type="button" class="icon-button" data-cancel aria-label="Fechar editor"><svg aria-hidden="true"><use href="#i-x"></use></svg></button>
+      </header>
+      <div id="dialog-fields" class="fields dialog-fields"></div>
+      <p id="dialog-warning" class="warning" role="status" hidden></p>
+      <p id="file-error" class="warning" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button type="button" class="button" data-cancel>Cancelar</button>
+        <button type="submit" class="button primary" id="save-edit">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+  <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

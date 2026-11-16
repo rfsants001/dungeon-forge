@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e0d">
+  <title>Dungeon Forge · Jogadores</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="player player-full" aria-labelledby="player-title">
+    <div id="player-stage" aria-live="polite">
+      <div id="wait-screen">
+        <img class="player-brand" src="./assets/logo.webp" alt="Dungeon Forge">
+        <h1 id="player-title">Aguardando o mestre</h1>
+      </div>
+      <figure id="creature-screen" hidden>
+        <img id="creature-art" class="feature-art" alt="">
+        <figcaption><h1 id="creature-title"></h1></figcaption>
+      </figure>
+      <div id="room-screen" class="player-room" hidden>
+        <h1 id="scene-title"></h1>
+        <p id="scene-text"></p>
+        <svg id="scene-map" class="player-map" role="img" aria-label="Salas reveladas"></svg>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="./player.js"></script>
+</body>
+</html>
