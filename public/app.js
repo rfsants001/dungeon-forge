@@ -35,7 +35,7 @@ const editForm = $('#edit-form');
 const stored = loadDungeon();
 const state = {
   room:stored?.selected??0,tab:'mobs',dungeon:stored,view:'criar',zoom:1,edit:null,
-  shared:new Set(),projection:null
+  shared:new Set(),projection:null,levels:[]
 };
 const origin = window.location.origin;
 let playerWindow = null;
@@ -113,13 +113,14 @@ function formChanged(event) {
   if (!event || ['mixed','party-count','party-level'].includes(event.target.id)) {
     const mixed = $('#mixed').checked;
     const common = Number($('#party-level').value);
-    const oldLevels = $$('#individual select').map(input => Number(input.value));
+    const current = $$('#individual select').map(input => Number(input.value));
+    if (current.length) state.levels = current;
     $('#shared-label').hidden = mixed;
     $('#individual').hidden = !mixed;
     if (mixed) {
       $('#individual').innerHTML = Array.from({length:Number($('#party-count').value)}, (_, index) =>
         '<label>Personagem ' + (index+1) + '<select aria-label="Nível do personagem ' + (index+1) + '">' +
-        options(1,20,oldLevels[index] || common) + '</select></label>').join('');
+        options(1,20,state.levels[index] || common) + '</select></label>').join('');
     } else $('#individual').replaceChildren();
   }
   const settings = readSettings();
@@ -190,11 +191,11 @@ function geometry() {
   }).join('');
 }
 
-function zoomMap() {
+function zoomMap(centerIndex = state.room) {
   const [x,y,fullWidth,fullHeight] = fitMap(state.dungeon.rooms);
   const width = fullWidth / state.zoom;
   const height = fullHeight / state.zoom;
-  const center = state.zoom === 1 ? {x:x+width/2,y:y+height/2} : room();
+  const center = state.zoom === 1 ? {x:x+width/2,y:y+height/2} : state.dungeon.rooms[centerIndex];
   $('#map').setAttribute('viewBox',[center.x-width/2,center.y-height/2,width,height].join(' '));
   $('[data-zoom=out]').disabled = state.zoom <= 1;
   $('[data-zoom=in]').disabled = state.zoom >= 1.8;
@@ -335,6 +336,7 @@ function openEditor(index, type = state.tab) {
   $('#dialog-fields').innerHTML = fields;
   updateEditWarning();
   editDialog.showModal();
+  $('#dialog-fields').querySelector('input,select,textarea')?.focus();
 }
 
 function candidateXp() {
@@ -482,6 +484,10 @@ $('#map').addEventListener('keydown', event => {
     updateRoom(Number(target.dataset.mapRoom), 'map');
   }
 });
+$('#map').addEventListener('focusin', event => {
+  const target = event.target.closest('[data-map-room]');
+  if (target && state.zoom > 1) zoomMap(Number(target.dataset.mapRoom));
+});
 $$('[data-zoom]').forEach(button => button.addEventListener('click', () => {
   state.zoom = button.dataset.zoom === 'reset' ? 1 : Math.min(1.8,Math.max(1,state.zoom+(button.dataset.zoom === 'in' ? .2 : -.2)));
   zoomMap();
@@ -541,6 +547,7 @@ if (stored) {
   $('#party-count').value=levels.length;
   $('#party-level').value=levels[0];
   $('#mixed').checked=levels.some(level=>level!==levels[0]);
+  state.levels=levels.slice();
   createForm.querySelector('[name=difficulty][value='+difficulty+']').checked=true;
   $('#size').value=size===difficulty?'auto':size;
   $('#boss').value=boss;

@@ -3,6 +3,8 @@ import {READY,PRESENT,validArt,drawPublicMap} from './projection.js';
 const $ = id => document.getElementById(id);
 const parentWindow = window.opener;
 const origin = window.location.origin;
+const image=$('creature-art');
+image.addEventListener('error',()=>{ image.hidden=true; image.removeAttribute('src'); });
 
 function present(scene) {
   $('wait-screen').hidden=!!scene;
@@ -10,7 +12,6 @@ function present(scene) {
   $('room-screen').hidden=scene?.kind!=='room';
   document.querySelector('main').setAttribute('aria-labelledby',
     scene?.kind==='creature'?'creature-title':scene?.kind==='room'?'scene-title':'player-title');
-  const image=$('creature-art');
   if (scene?.kind==='creature') {
     $('creature-title').textContent=scene.title;
     image.hidden=!validArt(scene.art);
